@@ -1,0 +1,33 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "§dA Discord Chat Bridge addon originally made by §e@ayy_star§r, enhanced by §e@raspberryepicly",
+    "name": "§eStarBridge Enhanced",
+    "uuid": "b305b08d-331a-430c-b7aa-7179c716423d",
+    "version": [0, 0, 4],
+    "min_engine_version": [ 1, 20, 0 ]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "becb4bc9-9569-439f-bcdb-63668438c23f",
+      "version": [0, 0, 1],
+      "entry": "scripts/index.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.10.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-net",
+      "version": "1.0.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.2.0-beta"
+    }
+  ]
+}
