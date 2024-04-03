@@ -134,3 +134,4 @@ scripts/
 apitests.ts
 .vscode/launch.json
 tests/
+bridge.js
