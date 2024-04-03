@@ -2,7 +2,7 @@
 ![icon](pack_icon.png)
 An open-source Minecraft: Bedrock Edition addon that enables chat bridge across Bedrock Dedicated Server and Discord. 
 
-<cite>This behavior pack is only for BDS and nothing else, it does not work on local worlds so dont even try it...</cite>
+This behavior pack is only for BDS and nothing else, it does not work on local worlds so dont even try it...
 
 This addon is an improved version of the [original Starbridge addon](https://mcpedl.com/starbridge/) by [ayy star](https://starstudios.tech/), [i have his permission to continue the project](screenies/permission.png)
 
