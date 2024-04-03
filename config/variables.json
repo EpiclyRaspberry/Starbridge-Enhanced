@@ -1,0 +1,6 @@
+{
+    "DISCORD_BOT_TOKEN": "yourdiscord.bottoken.here",
+    "DISCORD_CHANNEL_ID": "123",
+    "DISCORD_GUILD_ID": "456",
+    "DISCORD_BOT_PREFIX": "*"
+}

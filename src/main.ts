@@ -1,7 +1,9 @@
 import { ChatSendAfterEvent, ChatSendBeforeEvent, ItemUseBeforeEvent, Vector3, system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
+import config from "config";
 import { sendDiscordMessage, getChannelMessages } from "discord/utils";
-import { extractMentions, sendDiscordMessageWithMentions } from "utils";
+import discordcommandhandler from "discordcommandhandler";
+import { extractMentions, sendDiscordMessageWithMentions, mentionRegex, sendWorldMessage} from "utils";
 
 var lastMessageId: string | number | boolean | Vector3 = world.getDynamicProperty('lastmsg') || '0'
 var lastMessageContent = ''
@@ -10,13 +12,21 @@ export async function start() {
     world.afterEvents.chatSend.subscribe(gameChatHandler);
     world.beforeEvents.chatSend.subscribe(test)
     world.afterEvents.itemUse.subscribe(configForm)
+    if (typeof lastMessageId === 'string') {
+        getChannelMessages(lastMessageId).then(json => {
+            if (json.length !== 0) {
+                lastMessageId = json[json.length - 1].id;
+                world.setDynamicProperty('lastmsg', lastMessageId);
+            }
+        })
+    }
     system.runInterval(discordMessagesHandler, 10)
 }
 
 async function gameChatHandler(event: ChatSendAfterEvent){
     var message = event.message.slice(0);
     // Convert Minecraft mentions to Discord mentions
-    if(extractMentions(message).length > 0){
+    if(extractMentions(message, mentionRegex).length > 0){
         await sendDiscordMessageWithMentions(message, event);
     }
     else {
@@ -77,18 +87,25 @@ function test(e){
 async function discordMessagesHandler() {
     if (typeof lastMessageId === 'string') {
         try {
-            const json = await getChannelMessages(lastMessageId);
+            var json = await getChannelMessages(lastMessageId);
             if (json.length !== 0) {
-                json.reverse().forEach(message => {
+                json.reverse().forEach(async message => {
+                    
                     if (message.author.bot !== undefined) return;
                     const attachment = message.attachments.length > 0 ? " [Attachment]" : "";
                     if (lastMessageContent === message.content) return;
-                    world.sendMessage(`§9<${message.author.username}>${attachment} §f${message.content}`);
-                    lastMessageId = message.id;
                     lastMessageContent = message.content;
+                    if (message.content.startsWith(config.prefix)){
+                        discordcommandhandler(message)
+                    }
+                    await sendWorldMessage(message, attachment);
+                    lastMessageId = message.id;
                     world.setDynamicProperty('lastmsg', lastMessageId);
                 });
+                json = null;
+                
             }
+            
         } catch (e) {
             // console.log('dmh try/catch: ', e+e.stack) // don't do anything so it wouldn't spam the console
         }

@@ -69,6 +69,20 @@ export async function searchForGuildMember(query: string) {
     }
 }
 
+export async function getGuildMember(id: string) {
+    var req = new net.HttpRequest(`${API_ENDPOINT}guilds/${config.guild_ID}/members/${id}`);
+
+    req.setHeaders(DEFAULT_HEADERS);
+    req.setMethod(net.HttpRequestMethod.Get);
+
+    var res = await net.http.request(req);
+    if (res.status === 200) {
+        return classes.GuildMember.fromJson(JSON.parse(res.body));
+    } else {
+        return null;
+    }
+}
+
 export async function getChannelMessages(after: string): Promise<any[]> {
     var req = new net.HttpRequest(`${API_ENDPOINT}channels/${config.channel_ID}/messages?after=${after}`);
     req.setHeaders(DEFAULT_HEADERS);
