@@ -50,4 +50,30 @@ If you want to suggest/report a bug, please [join my discord server](https://dis
 this pack is my first one and probably has a lot of bloats inside<br> 
 if u want to contribute, fork this repo and make a pull request after you made some changes<br>
 pr discussions should be done on the discord server so i can read all of it<br>
-i use vsc with github copilot to develop this pack
+i use vsc with github copilot to develop this pack<br>
+
+how to contribute:<br>
+1. do the usual installation and setup(i recommend doing this on a local bds server)
+2. delete the `Starbridge Enhanced` folder in the `behavior_packs` folder pn the bds world
+3. clone the repo on the `behavior_packs` folder
+4. open the repo on vsc
+5. make changes
+-  how to test your changes:
+- 1. run the server
+- 2. join the server
+- 3. make your changes
+- 4. right click the explorer part of vsc and press `Open in intregrated terminal`
+- 5. type `tsc --watch` so it will transpile the typescript files to javascript automatically when you save a file
+- 6. type `reload` and press enter on the bds console
+- 7. test your changes
+6. make a pull request
+9. wait for me to review it
+10. profit hehehhehe
+
+# Acknowledges
+The attic discord server for letting me test it there<br>
+ayy star for letting me continue the project<br>
+everyone who helped me test the pack<br>
+Bedrock.dev discord server for helping me with the code<br>
+my dog Macky for keeping me sane while coding at 1am<br>
+idk who else to put here<br>
