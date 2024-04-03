@@ -21,6 +21,15 @@ export async function start() {
         })
     }
     system.runInterval(discordMessagesHandler, 10)
+    world.afterEvents.worldInitialize.subscribe(async () => {
+        await sendDiscordMessage('Server has started!')
+    })
+    world.afterEvents.playerJoin.subscribe(async (e) => {
+        await sendDiscordMessage(`**${e.playerName}** has joined the server!`)
+    })
+    world.afterEvents.playerLeave.subscribe(async (e) => {
+        await sendDiscordMessage(`**${e.playerName}** has left the server!`)
+    })
 }
 
 async function gameChatHandler(event: ChatSendAfterEvent){
