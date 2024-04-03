@@ -4,7 +4,7 @@
     "description": "§dA Discord Chat Bridge addon originally made by §e@ayy_star§r, enhanced by §e@raspberryepicly",
     "name": "§eStarBridge Enhanced",
     "uuid": "b305b08d-331a-430c-b7aa-7179c716423d",
-    "version": [0, 0, 4],
+    "version": [1, 0, 0],
     "min_engine_version": [ 1, 20, 0 ]
   },
   "modules": [
