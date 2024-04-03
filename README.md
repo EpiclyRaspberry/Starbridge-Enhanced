@@ -14,3 +14,10 @@ This addon is an improved version of the [original Starbridge addon](https://mcp
 
 - Mention support(full/partial mention, bi-directional)<br>
 ![Feature 2](screenies/f2.png)
+
+# Installation
+1. Download the latest release from the [releases page](https://github.com/EpiclyRaspberry/Starbridge-Enhanced/releases)
+2. Extract the zip file
+3. Put the `permissions.json` and `variables.json` files in the `config/default` folder of your BDS folder
+4. Import the pack into minecraft
+5. Grab the wo

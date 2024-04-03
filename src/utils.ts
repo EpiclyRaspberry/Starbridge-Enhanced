@@ -32,7 +32,6 @@ export async function sendWorldMessage(message, attachment: string){
   if(msg.startsWith(config.prefix)) return; // If the message starts with the prefix, return
   var mentions = extractMentions(msg, discordMentionRegex);
   if(mentions.length > 0){
-    console.log(mentions);
     for(const mention of mentions){
       var guildMember = await dutils.getGuildMember(mention.substring(2, mention.length - 1));
       if(guildMember){

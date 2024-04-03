@@ -6,10 +6,10 @@ export default function(message){
         case "players":
             var players = world.getPlayers();
             var playerNames = players.map(player => player.name);
-            dutils.sendDiscordMessage(`Players online: ${playerNames.join(",\n")}`);
+            dutils.sendDiscordMessage(`Players online: \n${players ? playerNames.join(',\n'): "No players online"}`);
             break;
         case "help":
-            dutils.sendDiscordMessage("Commands: !players, !help");
+            dutils.sendDiscordMessage("Commands: players, help");
             break;
     }
 }
