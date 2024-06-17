@@ -5,7 +5,7 @@
     "name": "§eStarBridge Enhanced",
     "uuid": "b305b08d-331a-430c-b7aa-7179c716423d",
     "version": [1, 0, 0],
-    "min_engine_version": [ 1, 20, 0 ]
+    "min_engine_version": [ 1, 21, 0 ]
   },
   "modules": [
     {
@@ -19,7 +19,7 @@
   "dependencies": [
     {
       "module_name": "@minecraft/server",
-      "version": "1.10.0-beta"
+      "version": "1.12.0-beta"
     },
     {
       "module_name": "@minecraft/server-net",

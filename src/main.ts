@@ -11,7 +11,7 @@ console.log('lastMessageId: ', lastMessageId)
 export async function start() {
     world.afterEvents.chatSend.subscribe(gameChatHandler);
     world.beforeEvents.chatSend.subscribe(test)
-    world.afterEvents.itemUse.subscribe(configForm)
+    // world.afterEvents.itemUse.subscribe(configForm)
     if (typeof lastMessageId === 'string') {
         getChannelMessages(lastMessageId).then(json => {
             if (json.length !== 0) {
@@ -22,13 +22,13 @@ export async function start() {
     }
     system.runInterval(discordMessagesHandler, 10)
     world.afterEvents.worldInitialize.subscribe(async () => {
-        await sendDiscordMessage('Server has started!')
+        await sendDiscordMessage('# Server has started!')
     })
     world.afterEvents.playerJoin.subscribe(async (e) => {
-        await sendDiscordMessage(`**${e.playerName}** has joined the server!`)
+        await sendDiscordMessage(`# **${e.playerName}** has joined the server!`)
     })
     world.afterEvents.playerLeave.subscribe(async (e) => {
-        await sendDiscordMessage(`**${e.playerName}** has left the server!`)
+        await sendDiscordMessage(`# **${e.playerName}** has left the server!`)
     })
 }
 
